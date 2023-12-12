@@ -2,7 +2,7 @@
 export default {
   name: 'AppLogo',
 
-  
+
 };
 </script>
 

@@ -7,7 +7,17 @@ export default {
 </script>
 
 <template>
-  
+    <div class="container">
+      <div></div>
+      <div></div>
+    </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+.container {
+  background-color: white;
+  padding: 50px;
+}
+
+</style>

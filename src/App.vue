@@ -12,8 +12,17 @@ export default {
 </script>
 
 <template>
-  <AppHeader/>
-  <AppMain/>
+  <div class="all-container">
+    <AppHeader/>
+    <AppMain/>
+  </div>
+  
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use './assets/scss/style.scss' as *;
+
+
+
+
+</style>

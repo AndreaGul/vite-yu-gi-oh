@@ -13,8 +13,16 @@ export default {
 </script>
 
 <template>
-    <AppMainCards/>
+  <main>
+     <AppMainCards/>
     <AppMainSelect/>
+  </main>
+   
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use '../assets/scss/partial/variables' as *;
+
+
+    
+    </style>
