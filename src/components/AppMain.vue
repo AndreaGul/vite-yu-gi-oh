@@ -23,6 +23,8 @@ export default {
 <style scoped lang="scss">
 @use '../assets/scss/partial/variables' as *;
 
-
+  main {
+    overflow: auto;
+  }
     
     </style>
