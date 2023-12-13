@@ -1,29 +1,20 @@
 <script>
-import axios from 'axios';
+
 export default {
   name: 'AppMainCards',
 
-  data() {
-    return{
-      cards:[],
-      apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0', 
-    }
-  },
-  created(){
-    axios.get(this.apiUrl).then((response) => {
-      this.cards= response.data.data;
-    });
-  },
+  props: ['cardslist'],
+  
   
 };
 </script>
 
 <template>
     <div class="container">
-      <div class="found-container" ><h5>Found {{ this.cards.length }} cards</h5></div>
+      <div class="found-container" ><h5>Found {{ this.cardslist.length }} cards</h5></div>
       <div>
         <ul class="cards-container">
-          <li v-for="card in cards"  class="card">
+          <li v-for="card in cardslist"  class="card">
             <div><img :src="card.card_images[0].image_url" :alt="card.name"></div>
             <div class="card-text-container">
               <h4>{{ card.name }}</h4>
