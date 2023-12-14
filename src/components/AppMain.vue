@@ -21,6 +21,14 @@ export default {
     axios.get(this.store.apiUrl).then((response) => {
       this.store.cards= response.data.data;
     });
+
+    axios.get(this.store.apiUlrActhetypes).then((response) => {
+      console.log(response.data.length);
+      
+        this.store.cardArchtypes= response.data;
+      
+      
+    });
   },
   
 };

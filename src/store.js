@@ -2,5 +2,7 @@ import { reactive } from 'vue';
 
 export const store= reactive ({
     cards:[],
-    apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0', 
+    cardArchtypes: [],
+    apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0',
+    apiUlrActhetypes:   'https://db.ygoprodeck.com/api/v7/archetypes.php',
 });
