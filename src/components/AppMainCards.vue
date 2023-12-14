@@ -1,7 +1,13 @@
 <script>
 
+import AppMainCardsCard from './AppMainCardsCard.vue';
+
 export default {
   name: 'AppMainCards',
+
+  components: {
+    AppMainCardsCard,
+  },
 
   props: ['cardslist'],
   
@@ -14,15 +20,13 @@ export default {
       <div class="found-container" ><h5>Found {{ this.cardslist.length }} cards</h5></div>
       <div>
         <ul class="cards-container">
-          <li v-for="card in cardslist"  class="card">
-            <div><img :src="card.card_images[0].image_url" :alt="card.name"></div>
-            <div class="card-text-container">
-              <h4>{{ card.name }}</h4>
-              <p>{{ card.race}}</p>
-            </div>
-            
-          </li>
           
+          <AppMainCardsCard 
+          v-for="card in cardslist"
+          :img="card.card_images[0].image_url"
+          :name="card.name"
+          :race="card.race"
+          />
         </ul>
       </div>
     </div>
@@ -44,7 +48,7 @@ export default {
      }
   }
 
-  .cards-container{
+  :deep(.cards-container){
     display: flex;
     flex-wrap: wrap;
     gap: 15px 25px ;
