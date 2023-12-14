@@ -7,7 +7,7 @@ export default {
 
   data (){
     return{
-      searchkey: '',
+      
       store,
     }
   },
@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div class="container">
-      <select name="Archtypes" id="Archtypes" v-model="searchkey" @change="$emit ('search')">
+      <select name="Archtypes" id="Archtypes" v-model="store.searchkey" @change="$emit ('search')">
         <option selected value="">Achetypes</option>
         <option v-for="arch in store.cardArchtypes" :value="arch.archetype_name">{{arch.archetype_name}}</option>
       </select>

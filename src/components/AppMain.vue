@@ -17,23 +17,20 @@ export default {
     AppMainSelect,
   },
   methods: {
-        onChange(event) {
-            console.log(event.target.value)
-           
+        search() {
+          axios.get(this.store.apiUrl + this.store.apiUrl + '?archetype=' + this.store.searchkey  ).then((response) => {
+            this.store.cards= response.data.data;
+          });
+
+          axios.get(this.store.apiUlrActhetypes).then((response) => {
+            this.store.cardArchtypes= response.data;
+          });
         },
-         chiamata() {
-          console.log('ee')
-         }
+        
     },
 
   created(){
-    axios.get(this.store.apiUrl).then((response) => {
-      this.store.cards= response.data.data;
-    });
-
-    axios.get(this.store.apiUlrActhetypes).then((response) => {
-      this.store.cardArchtypes= response.data;
-    });
+    this.search();
   },
   
 };
@@ -41,7 +38,7 @@ export default {
 
 <template>
   <main>
-      <AppMainSelect @search="chiamata" />
+      <AppMainSelect @search=" search" />
       <AppMainCards :cardslist="this.store.cards"/>
     
   </main>
