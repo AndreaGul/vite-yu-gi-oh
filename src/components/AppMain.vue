@@ -2,14 +2,14 @@
 import axios from 'axios';
 import AppMainCards from './AppMainCards.vue';
 import AppMainSelect from './AppMainSelect.vue';
+import { store } from '../store';
 export default {
   name: 'AppMain',
 
   data() {
     return{
-      cards:[],
-      apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0', 
-    }
+      store,
+     }
   },
 
   components: {
@@ -18,8 +18,8 @@ export default {
   },
 
   created(){
-    axios.get(this.apiUrl).then((response) => {
-      this.cards= response.data.data;
+    axios.get(this.store.apiUrl).then((response) => {
+      this.store.cards= response.data.data;
     });
   },
   
@@ -29,7 +29,7 @@ export default {
 <template>
   <main>
       <AppMainSelect />
-      <AppMainCards :cardslist="this.cards"/>
+      <AppMainCards :cardslist="this.store.cards"/>
     
   </main>
    
