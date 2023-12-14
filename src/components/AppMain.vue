@@ -18,7 +18,7 @@ export default {
   },
   methods: {
         search() {
-          axios.get(this.store.apiUrl + this.store.apiUrl + '?archetype=' + this.store.searchkey  ).then((response) => {
+          axios.get(this.searchTheCard ()).then((response) => {
             this.store.cards= response.data.data;
           });
 
@@ -26,6 +26,16 @@ export default {
             this.store.cardArchtypes= response.data;
           });
         },
+
+
+        searchTheCard () {
+          if( this.store.searchkey === '' ) {
+            return this.store.apiUrl
+          }
+          else {
+            return this.store.apiUrl + '&archetype=' + this.store.searchkey
+          }
+        }
         
     },
 
