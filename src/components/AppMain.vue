@@ -16,6 +16,15 @@ export default {
     AppMainCards,
     AppMainSelect,
   },
+  methods: {
+        onChange(event) {
+            console.log(event.target.value)
+           
+        },
+         chiamata() {
+          console.log('ee')
+         }
+    },
 
   created(){
     axios.get(this.store.apiUrl).then((response) => {
@@ -23,11 +32,7 @@ export default {
     });
 
     axios.get(this.store.apiUlrActhetypes).then((response) => {
-      console.log(response.data.length);
-      
-        this.store.cardArchtypes= response.data;
-      
-      
+      this.store.cardArchtypes= response.data;
     });
   },
   
@@ -36,7 +41,7 @@ export default {
 
 <template>
   <main>
-      <AppMainSelect />
+      <AppMainSelect @search="chiamata" />
       <AppMainCards :cardslist="this.store.cards"/>
     
   </main>
